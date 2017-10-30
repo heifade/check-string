@@ -9,7 +9,7 @@ cache:
 deploy:
   provider: npm
   email: heifade@126.com
-
+  api_key: 408d0c1d-3c0d-452f-b034-5959e5387993
   on:
     tags: true
     repo: heifade/check-string
