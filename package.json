@@ -1,0 +1,34 @@
+{
+  "name": "check-value",
+  "version": "1.0.4",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "files": [
+    "src",
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "removeDist": "node ./tools/deleteOutPath.js",
+    "build-temp": "npm run removeDist && tsc && browserify ./dist/checkValue.js > ./dist/compiled.js",
+    "build": "npm run removeDist && npm run build-es6 && npm run build-amd && npm run build-pack",
+    "build-es6": "tsc -p tsconfig-es6.json",
+    "build-es5": "tsc -p tsconfig-es5.json",
+    "build-amd": "tsc -p tsconfig-amd.json",
+    "build-pack": "node ./tools/pack.js",
+    "start": "webpack-dev-server --open --port 7000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.2.3",
+    "browserify": "^14.5.0",
+    "html-webpack-plugin": "^2.30.1",
+    "tsify": "^3.0.3",
+    "typescript": "^2.5.3",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  }
+}
