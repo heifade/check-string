@@ -17,6 +17,7 @@
     "build-es5": "tsc -p tsconfig-es5.json",
     "build-amd": "tsc -p tsconfig-amd.json",
     "build-pack": "node ./tools/pack.js",
+    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --hideGenerator --includeDeclarations",
     "start": "webpack-dev-server --open --port 7000"
   },
   "keywords": [],
@@ -27,6 +28,7 @@
     "browserify": "^14.5.0",
     "html-webpack-plugin": "^2.30.1",
     "tsify": "^3.0.3",
+    "typedoc": "^0.9.0",
     "typescript": "^2.5.3",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
