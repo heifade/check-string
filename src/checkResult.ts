@@ -1,9 +1,15 @@
+export class CheckResultError {
+  public en: string;
+  public cn: string;
+  public code: string;
+}
+
 export class CheckResult {
   public success: boolean;
-  public message: string;
+  public error: CheckResultError;
 
-  public constructor(success: boolean, message: string) {
+  public constructor(success: boolean, error?: CheckResultError) {
     this.success = success;
-    this.message = message;
+    this.error = error;
   }
 }

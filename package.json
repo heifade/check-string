@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -11,26 +11,41 @@
   ],
   "scripts": {
     "removeDist": "node ./tools/deleteOutPath.js",
-    "build-temp": "npm run removeDist && tsc && browserify ./dist/checkValue.js > ./dist/compiled.js",
-    "build": "npm run removeDist && npm run build-es6 && npm run build-amd && npm run build-pack",
+    "build": "npm run removeDist && npm run build-es6 && npm run build-amd ",
     "build-es6": "tsc -p tsconfig-es6.json",
-    "build-es5": "tsc -p tsconfig-es5.json",
     "build-amd": "tsc -p tsconfig-amd.json",
     "build-pack": "node ./tools/pack.js",
-    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --hideGenerator --includeDeclarations",
-    "start": "webpack-dev-server --open --port 7000"
+    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --hideGenerator && node ./tools/replaceDocFileUnderline.js",
+    "start": "webpack-dev-server --open --port 7000",
+    "test": "nyc mocha -t 5000",
+    "test-nyc": "./node_modules/.bin/nyc npm test && nyc report --reporter=text-lcov | coveralls"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "sourceMap": true,
+    "instrument": true
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "heifade",
+  "license": "MIT",
   "devDependencies": {
-    "awesome-typescript-loader": "^3.2.3",
-    "browserify": "^14.5.0",
-    "html-webpack-plugin": "^2.30.1",
-    "tsify": "^3.0.3",
+    "@types/chai": "^4.0.6",
+    "@types/mocha": "^2.2.44",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "source-map-support": "^0.5.0",
+    "ts-node": "^3.3.0",
     "typedoc": "^0.9.0",
-    "typescript": "^2.5.3",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "typescript": "^2.5.3"
   }
 }

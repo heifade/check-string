@@ -1,7 +1,9 @@
+export class CheckResultError {
+}
 export class CheckResult {
-    constructor(success, message) {
+    constructor(success, error) {
         this.success = success;
-        this.message = message;
+        this.error = error;
     }
 }
 //# sourceMappingURL=checkResult.js.map

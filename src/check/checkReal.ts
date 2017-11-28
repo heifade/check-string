@@ -1,7 +1,12 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
 import { isNull } from "../util";
-import { checkCommon, checkRegs } from "./checkCommon";
+import {
+  checkCanNullOrEmpty,
+  checkRegs,
+  checkMinValue,
+  checkMaxValue
+} from "./checkCommon";
 
 let regList = [
   /^[0-9](\.[0-9]+)?$/, // [0, 9.99*)
@@ -17,39 +22,50 @@ export class CheckRealParams extends CheckParamsBase {
 }
 
 export function isReal(value: string, params?: CheckRealParams): CheckResult {
-  if (checkCommon(value, params).success) {
-    return new CheckResult(true, "");
+  let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
+  if (resultCanNullOrEmpty) {
+    return resultCanNullOrEmpty;
   }
 
   if (checkRegs(regList, value)) {
     if (params) {
-      let valueOfInt = Number(value);
-      if (!isNull(params.max)) {
-        if (valueOfInt > params.max) {
-          return new CheckResult(false, `最大值不能大于${params.max}`);
-        }
+      let checkMinResult = checkMinValue(value, params.min);
+      if (checkMinResult) {
+        return checkMinResult;
       }
-      if (!isNull(params.min)) {
-        if (valueOfInt < params.min) {
-          return new CheckResult(false, `最小值不能小于${params.max}`);
-        }
+
+      let checkMaxResult = checkMaxValue(value, params.max);
+      if (checkMaxResult) {
+        return checkMaxResult;
       }
       // 小数位数
       let pointIndex = value.indexOf(".");
       if (pointIndex > -1) {
         if (value.substr(pointIndex + 1).length > params.decimals) {
-          return new CheckResult(false, `请输入一个浮点数，最多${params.decimals}位小数！`);
+          return new CheckResult(false, {
+            code: `ERROR_DECIMAL_DIGITS`,
+            en: `at most ${params.decimals} decimal`,
+            cn: `最多${params.decimals}位小数`
+          });
         }
       }
     }
 
     // -0, -0.0, -00.00 等 不符合浮点数格式
     if (/^-0+(\.0+)?$/.test(value)) {
-      return new CheckResult(false, `请输入一个浮点数！`);
+      return new CheckResult(false, {
+        code: `ERROR_NOT_REAL`,
+        en: `please enter a floating-point number`,
+        cn: `请输入一个浮点数`
+      });
     }
 
-    return new CheckResult(true, "验证通过");
+    return new CheckResult(true);
   } else {
-    return new CheckResult(false, `请输入一个浮点数！`);
+    return new CheckResult(false, {
+      code: `ERROR_NOT_REAL`,
+      en: `please enter a floating-point number`,
+      cn: `请输入一个浮点数`
+    });
   }
 }

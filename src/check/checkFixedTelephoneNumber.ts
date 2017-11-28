@@ -1,27 +1,30 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
 import { isNull } from "../util";
-import { checkCommon, checkRegs } from "./checkCommon";
+import { checkCanNullOrEmpty, checkRegs } from "./checkCommon";
 
 let regList = [
   /^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$/ // 固定电话号码
 ];
 
-export class checkFixedTelephoneNumberParams extends CheckParamsBase {}
+export class CheckFixedTelephoneNumberParams extends CheckParamsBase {}
 
 export function isFixedTelephoneNumber(
   value: string,
-  params?: checkFixedTelephoneNumberParams
+  params?: CheckFixedTelephoneNumberParams
 ): CheckResult {
-  if (checkCommon(value, params).success) {
-    return new CheckResult(true, "");
+  let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
+  if (resultCanNullOrEmpty) {
+    return resultCanNullOrEmpty;
   }
 
   if (checkRegs(regList, value)) {
-    if (params) {
-    }
-    return new CheckResult(true, "验证通过");
+    return new CheckResult(true);
   } else {
-    return new CheckResult(false, `请输入一个有效的固定电话号码！`);
+    return new CheckResult(false, {
+      code: `ERROR_TEL_NOT_TEL`,
+      en: `please enter a valid fixed phone number`,
+      cn: `请输入一个有效的固定电话号码`
+    });
   }
 }

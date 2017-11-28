@@ -1,31 +1,40 @@
 import { CheckParamsBase } from "../checkParamsBase";
 import { CheckResult } from "../checkResult";
+import { isNull, isEmpty } from "../util";
 
-export function checkCommon(
+export function checkCanNullOrEmpty(
   value: string,
   params?: CheckParamsBase
 ): CheckResult {
   if (params) {
-    if (value === null || value === undefined) {
+    if (isNull(value)) {
       // 值为空时
       if (params.canNull || params.canNullOrEmpty) {
         // 验证要求可以为空
-        return new CheckResult(true, "");
+        return new CheckResult(true);
       } else {
         //验证要求不可以为空
-        return new CheckResult(false, "不允许为空");
+        return new CheckResult(false, {
+          code: `ERROR_CANNOT_NULL`,
+          en: `can not be empty`,
+          cn: `不能为空`
+        });
       }
-    } else if (value === "") {
+    } else if (isEmpty(value)) {
       // 值为空字符串时
       if (params.canEmpty || params.canNullOrEmpty) {
-        return new CheckResult(true, "");
+        return new CheckResult(true);
       } else {
-        return new CheckResult(false, "不允许为空");
+        return new CheckResult(false, {
+          code: `ERROR_CANNOT_EMPTY`,
+          en: `can not be empty`,
+          cn: `不能为空`
+        });
       }
     }
   }
 
-  return new CheckResult(false, "");
+  return null;
 }
 
 // 校验正则表达式数组，所有正则都通过返回true
@@ -36,4 +45,32 @@ export function checkRegs(regList: Array<any>, value: string) {
     }
   }
   return false;
+}
+
+export function checkMaxValue(value: string, max: number) {
+  let valueOfInt = Number(value);
+  if (!isNull(max)) {
+    if (valueOfInt > max) {
+      return new CheckResult(false, {
+        code: "ERROR_MAX",
+        en: `can not be more than ${max}`,
+        cn: `不能大于${max}`
+      });
+    }
+  }
+  return null;
+}
+
+export function checkMinValue(value: string, min: number) {
+  let valueOfInt = Number(value);
+  if (!isNull(min)) {
+    if (valueOfInt < min) {
+      return new CheckResult(false, {
+        code: "ERROR_MIN",
+        en: `can not be less than ${min}`,
+        cn: `不能小于${min}`
+      });
+    }
+  }
+  return null;
 }

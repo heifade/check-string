@@ -1,7 +1,12 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
 import { isNull } from "../util";
-import { checkCommon, checkRegs } from "./checkCommon";
+import {
+  checkCanNullOrEmpty,
+  checkRegs,
+  checkMaxValue,
+  checkMinValue
+} from "./checkCommon";
 
 let regList = [
   /^[0-9]$/, // 0至9
@@ -18,27 +23,30 @@ export function isInteger(
   value: string,
   params?: CheckIntegerParams
 ): CheckResult {
-  if (checkCommon(value, params).success) {
-    return new CheckResult(true, "");
+  let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
+  if (resultCanNullOrEmpty) {
+    return resultCanNullOrEmpty;
   }
 
   if (checkRegs(regList, value)) {
     if (params) {
-      let valueOfInt = Number(value);
-      if (!isNull(params.max)) {
-        if (valueOfInt > params.max) {
-          return new CheckResult(false, `最大值不能大于${params.max}`);
-        }
+      let checkMinResult = checkMinValue(value, params.min);
+      if (checkMinResult) {
+        return checkMinResult;
       }
-      if (!isNull(params.min)) {
-        if (valueOfInt < params.min) {
-          return new CheckResult(false, `最小值不能小于${params.max}`);
-        }
+
+      let checkMaxResult = checkMaxValue(value, params.max);
+      if (checkMaxResult) {
+        return checkMaxResult;
       }
     }
 
-    return new CheckResult(true, "验证通过");
+    return new CheckResult(true);
   } else {
-    return new CheckResult(false, `请输入一个整数！`);
+    return new CheckResult(false, {
+      code: "ERROR_NOT_INT",
+      en: `please enter an integer`,
+      cn: `请输入一个整数`
+    });
   }
 }

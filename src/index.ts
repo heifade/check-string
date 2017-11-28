@@ -1,9 +1,30 @@
-import { isInteger } from "./check/checkInteger";
-import { isFloat } from "./check/checkFloat";
-import { isReal } from "./check/checkReal";
-import { isEmail } from "./check/checkEmail";
-import { isPhoneNumber } from "./check/checkPhoneNumber";
-import { isFixedTelephoneNumber } from './check/checkFixedTelephoneNumber';
-import { isIDCardNo } from './check/checkIDCardNo';
+import { isInteger, CheckIntegerParams } from "./check/checkInteger";
+import { isFloat, CheckFloatParams } from "./check/checkFloat";
+import { isReal, CheckRealParams } from "./check/checkReal";
+import { isEmail, CheckEmailParams } from "./check/checkEmail";
+import {
+  isPhoneNumber,
+  CheckPhoneNumberParams
+} from "./check/checkPhoneNumber";
+import {
+  isFixedTelephoneNumber,
+  CheckFixedTelephoneNumberParams
+} from "./check/checkFixedTelephoneNumber";
+import { isIDCardNo, CheckIDCardNoParams } from "./check/checkIDCardNo";
 
-export { isInteger, isFloat, isReal, isEmail, isPhoneNumber, isFixedTelephoneNumber, isIDCardNo };
+export {
+  isInteger,
+  CheckIntegerParams,
+  isFloat,
+  CheckFloatParams,
+  isReal,
+  CheckRealParams,
+  isEmail,
+  CheckEmailParams,
+  isPhoneNumber,
+  CheckPhoneNumberParams,
+  isFixedTelephoneNumber,
+  CheckFixedTelephoneNumberParams,
+  isIDCardNo,
+  CheckIDCardNoParams
+};
