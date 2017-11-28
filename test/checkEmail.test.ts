@@ -11,6 +11,22 @@ describe("checkEmail", function() {
     done();
   });
 
+  it("isEmail not email", done => {
+    [
+      "heifade.12@126.com", // 不通过，名字中出现"."
+      "嗨heifade12@126.com",// 不通过，名字中出现汉字
+      "heifade@12@126.com", // 不通过，名字中出现“@”
+      "heifade12126.com",   // 不通过，缺少“@”
+      "heifade12126@.com"   // 不通过，“@”后面没有域名
+    ].map(m => {
+      let result = isEmail(m);
+
+      expect(result.success).to.be.false;
+      expect(result.error.code === "ERROR_NOT_EMAIL").to.be.true;
+    });
+    done();
+  });
+
   it("isEmail can null", done => {
     expect(isEmail("", { canEmpty: true }).success).to.be.true;
     expect(isEmail(null, { canNull: true }).success).to.be.true;

@@ -26,7 +26,7 @@ export function isPhoneNumber(
     return new CheckResult(true);
   } else {
     return new CheckResult(false, {
-      code: "ERROR_PHONE_NOT_PHONE",
+      code: "ERROR_NOT_PHONE",
       en: `please enter a valid cell phone number`,
       cn: `请输入一个有效的手机号码`
     });

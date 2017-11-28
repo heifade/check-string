@@ -23,7 +23,7 @@ export function isIDCardNo(
     return new CheckResult(true);
   } else {
     return new CheckResult(false, {
-      code: `ERROR_IDCARD_NOT_IDCARD`,
+      code: `ERROR_NOT_IDCARD`,
       en: `please enter a valid ID number`,
       cn: `请输入一个有效的身份证号码`
     });

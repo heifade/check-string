@@ -22,7 +22,7 @@ export function isFixedTelephoneNumber(
     return new CheckResult(true);
   } else {
     return new CheckResult(false, {
-      code: `ERROR_TEL_NOT_TEL`,
+      code: `ERROR_NOT_TEL`,
       en: `please enter a valid fixed phone number`,
       cn: `请输入一个有效的固定电话号码`
     });
