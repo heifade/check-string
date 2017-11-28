@@ -2,6 +2,17 @@ import { CheckParamsBase } from "../checkParamsBase";
 import { CheckResult } from "../checkResult";
 import { isNull, isEmpty } from "../util";
 
+/**
+ * <pre>
+ * 内部方法。
+ * 检查是否允许为空
+ * </pre>
+ *
+ * @export
+ * @param {string} value
+ * @param {CheckParamsBase} [params]
+ * @returns {CheckResult}
+ */
 export function checkCanNullOrEmpty(
   value: string,
   params?: CheckParamsBase
@@ -37,7 +48,17 @@ export function checkCanNullOrEmpty(
   return null;
 }
 
-// 校验正则表达式数组，所有正则都通过返回true
+/**
+ * <pre>
+ * 内部访法
+ * 校验正则表达式数组，所有正则都通过返回true
+ * </pre>
+ *
+ * @export
+ * @param {Array<any>} regList
+ * @param {string} value
+ * @returns
+ */
 export function checkRegs(regList: Array<any>, value: string) {
   for (let reg of regList) {
     if (reg.test(value)) {
@@ -47,6 +68,14 @@ export function checkRegs(regList: Array<any>, value: string) {
   return false;
 }
 
+/**
+ * 检查最大值是否满足要求
+ *
+ * @export
+ * @param {string} value
+ * @param {number} max
+ * @returns
+ */
 export function checkMaxValue(value: string, max: number) {
   let valueOfInt = Number(value);
   if (!isNull(max)) {
@@ -61,6 +90,14 @@ export function checkMaxValue(value: string, max: number) {
   return null;
 }
 
+/**
+ * 检查最小值是否满足要求
+ *
+ * @export
+ * @param {string} value
+ * @param {number} min
+ * @returns
+ */
 export function checkMinValue(value: string, min: number) {
   let valueOfInt = Number(value);
   if (!isNull(min)) {

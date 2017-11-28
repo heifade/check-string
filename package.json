@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "removeDist": "node ./tools/deleteOutPath.js",
-    "build": "npm run removeDist && npm run build-es6 && npm run build-amd ",
+    "build": "npm run removeDist && npm run build-es6 && npm run build-amd && npm run docs",
     "build-es6": "tsc -p tsconfig-es6.json",
     "build-amd": "tsc -p tsconfig-amd.json",
     "build-pack": "node ./tools/pack.js",

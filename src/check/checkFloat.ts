@@ -8,6 +8,7 @@ import {
   checkMinValue
 } from "./checkCommon";
 
+//正则
 let regList = [
   /^[0-9]\.[0-9]+$/, // 0至9
   /^[1-9][0-9]*\.[0-9]+$/, //10以上
@@ -15,12 +16,42 @@ let regList = [
   /^-[1-9][0-9]*\.[0-9]+$/ //负数
 ];
 
+/**
+ * 浮点数检查参数
+ *
+ * @export
+ * @class CheckFloatParams
+ * @extends {CheckParamsBase}
+ */
 export class CheckFloatParams extends CheckParamsBase {
   public min?: number;
   public max?: number;
   public decimals?: number; //小数位数
 }
-
+/**
+ * <pre>
+ * 检查一个字符串是否符合浮点数格式
+ * 请注意，整型不属于浮点数。若要包含整型，请使用实数{@link isReal}
+ * </pre>
+ *
+ * @export
+ * @param {string} value - 被检查的字符串
+ * @param {CheckFloatParams} [params] - 参数
+ * @returns {CheckResult}
+ * @example
+ * <br/><br/>
+ * <pre>
+ * import { isFloat } from "check-string";
+ * ...
+ * let str = '12.53';
+ * let result = isFloat(str, { canNull: true, max: 500, min: 0 }); //str可以为null，最大500，最小0
+ * if (!result.success) {
+ *   console.log(result.error.code); // 输出错误编号
+ *   console.log(result.error.cn); // 输出错中文错误
+ *   console.log(result.error.en); // 输出错英文错误
+ * }
+ * </pre>
+ */
 export function isFloat(value: string, params?: CheckFloatParams): CheckResult {
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {

@@ -14,10 +14,10 @@ describe("checkEmail", function() {
   it("isEmail not email", done => {
     [
       "heifade.12@126.com", // 不通过，名字中出现"."
-      "嗨heifade12@126.com",// 不通过，名字中出现汉字
+      "嗨heifade12@126.com", // 不通过，名字中出现汉字
       "heifade@12@126.com", // 不通过，名字中出现“@”
-      "heifade12126.com",   // 不通过，缺少“@”
-      "heifade12126@.com"   // 不通过，“@”后面没有域名
+      "heifade12126.com", // 不通过，缺少“@”
+      "heifade12126@.com" // 不通过，“@”后面没有域名
     ].map(m => {
       let result = isEmail(m);
 

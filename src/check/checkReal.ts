@@ -8,6 +8,7 @@ import {
   checkMaxValue
 } from "./checkCommon";
 
+//正则
 let regList = [
   /^[0-9](\.[0-9]+)?$/, // [0, 9.99*)
   /^[1-9][0-9]*(\.[0-9]+)?$/, // [10, 99*.99*)
@@ -15,12 +16,40 @@ let regList = [
   /^-[1-9][0-9]*(\.[0-9]+)?$/ // (-99*.99*, -10.00]
 ];
 
+/**
+ * 实数检查参数
+ *
+ * @export
+ * @class CheckRealParams
+ * @extends {CheckParamsBase}
+ */
 export class CheckRealParams extends CheckParamsBase {
   public min?: number;
   public max?: number;
   public decimals?: number; //小数位数
 }
 
+/**
+ * 检查一个字符串是否符合实数格式
+ *
+ * @export
+ * @param {string} value - 被检查的字符串
+ * @param {CheckRealParams} [params] - 参数
+ * @returns {CheckResult}
+ * @example
+ * <pre>
+ * <br/><br/>
+ * import { isReal } from "check-string";
+ * ...
+ * let str = "23.56"
+ * let result = isReal(str, { canNull: true, max: 500, min: 0 }); //str可以为null，最大500，最小0
+ * if(!result.success) {
+ *   console.log(result.error.code); // 输出错误编号
+ *   console.log(result.error.cn); // 输出错中文错误
+ *   console.log(result.error.en); // 输出错英文错误
+ * }
+ * </pre>
+ */
 export function isReal(value: string, params?: CheckRealParams): CheckResult {
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {

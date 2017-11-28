@@ -24,7 +24,6 @@ describe("checkIDCardNo", function() {
     done();
   });
 
-
   it("isIDCardNo can null", done => {
     expect(isIDCardNo("", { canEmpty: true }).success).to.be.true;
     expect(isIDCardNo(null, { canNull: true }).success).to.be.true;

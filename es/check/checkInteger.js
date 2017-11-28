@@ -1,14 +1,42 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
-import { isNull } from "../util";
-import { checkCanNullOrEmpty, checkRegs } from "./checkCommon";
+import { checkCanNullOrEmpty, checkRegs, checkMaxValue, checkMinValue } from "./checkCommon";
+//正则
 let regList = [
     /^[0-9]$/,
     /^[1-9][0-9]*$/,
     /^-[1-9][0-9]*$/ //负数
 ];
+/**
+ * 整数检查参数
+ *
+ * @export
+ * @class CheckIntegerParams
+ * @extends {CheckParamsBase}
+ */
 export class CheckIntegerParams extends CheckParamsBase {
 }
+/**
+ * 检查一个字符串是否符合整数格式
+ *
+ * @export
+ * @param {string} value - 被检查的字符串
+ * @param {CheckIntegerParams} [params] - 参数
+ * @returns {CheckResult}
+ * @example
+ * <br/><br/>
+ * <pre>
+ * import { isInteger } from "check-string";
+ * ...
+ * let str = "123"
+ * let result = isInteger(str, { canNull: true, min: 10, max: 10000 }); //str可以为null，最大10000，最小10
+ * if(!result.success) {
+ *   console.log(result.error.code); // 输出错误编号
+ *   console.log(result.error.cn); // 输出错中文错误
+ *   console.log(result.error.en); // 输出错英文错误
+ * }
+ * </pre>
+ */
 export function isInteger(value, params) {
     let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
     if (resultCanNullOrEmpty) {
@@ -16,31 +44,20 @@ export function isInteger(value, params) {
     }
     if (checkRegs(regList, value)) {
         if (params) {
-            let valueOfInt = Number(value);
-            if (!isNull(params.max)) {
-                if (valueOfInt > params.max) {
-                    return new CheckResult(false, {
-                        code: "ERROR_INT_MAX",
-                        en: `can not be more than ${params.max}`,
-                        cn: `不能大于${params.max}`
-                    });
-                }
+            let checkMinResult = checkMinValue(value, params.min);
+            if (checkMinResult) {
+                return checkMinResult;
             }
-            if (!isNull(params.min)) {
-                if (valueOfInt < params.min) {
-                    return new CheckResult(false, {
-                        code: "ERROR_INT_MIN",
-                        en: `can not be less than ${params.max}`,
-                        cn: `不能小于${params.max}`
-                    });
-                }
+            let checkMaxResult = checkMaxValue(value, params.max);
+            if (checkMaxResult) {
+                return checkMaxResult;
             }
         }
         return new CheckResult(true);
     }
     else {
         return new CheckResult(false, {
-            code: "ERROR_INT_NOT_INT",
+            code: "ERROR_NOT_INT",
             en: `please enter an integer`,
             cn: `请输入一个整数`
         });
