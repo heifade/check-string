@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -11,12 +11,10 @@
   ],
   "scripts": {
     "removeDist": "node ./tools/deleteOutPath.js",
-    "build": "npm run removeDist && npm run build-es6 && npm run build-amd && npm run docs",
+    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --hideGenerator && node ./tools/replaceDocFileUnderline.js",
     "build-es6": "tsc -p tsconfig-es6.json",
     "build-amd": "tsc -p tsconfig-amd.json",
-    "build-pack": "node ./tools/pack.js",
-    "docs": "./node_modules/.bin/typedoc --out docs src --module commonjs --hideGenerator && node ./tools/replaceDocFileUnderline.js",
-    "start": "webpack-dev-server --open --port 7000",
+    "build": "npm run removeDist && npm run build-es6 && npm run build-amd && npm run docs",
     "test": "nyc mocha -t 5000",
     "test-nyc": "./node_modules/.bin/nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
