@@ -30,7 +30,7 @@ export class CheckRealParams extends CheckParamsBase {
  * import { isReal } from "check-string";
  * ...
  * let str = "23.56"
- * let result = isReal(str, { canNull: true, max: 500, min: 0 }); //str可以为null，最大500，最小0
+ * let result = isReal(str, { canNull: true, max: 500, min: 0, decimals: 2 }); //str可以为null，最大500，最小0, 小数点后最多2位小数
  * if(!result.success) {
  *   console.log(result.error.code); // 输出错误编号
  *   console.log(result.error.cn); // 输出错中文错误

@@ -83,8 +83,8 @@
 					<li>检查字符串输入值是否符合最大值，最小值要求
 					check-string的主要特点：</li>
 					<li>1.整型检查：是否是整型格式，是否可以为空，是否在最大最小值范围内。</li>
-					<li>2.浮点型检查：是否是浮点数格式，是否可以为空，是否在最大最小值范围内。</li>
-					<li>3.实数型检查：是否是实数格式，是否可以为空，是否在最大最小值范围内。</li>
+					<li>2.浮点型检查：是否是浮点数格式，是否可以为空，是否在最大最小值范围内，小数位数。</li>
+					<li>3.实数型检查：是否是实数格式，是否可以为空，是否在最大最小值范围内，小数位数。</li>
 					<li>4.邮件检查：是否是邮件格式</li>
 					<li>5.手机号码检查：是否是手机号码格式</li>
 					<li>6.座机号码检查：是否是座机号码格式</li>
@@ -116,7 +116,7 @@ let str = <span class="hljs-string">"123"</span>
 				<pre><code class="lang-js"><span class="hljs-keyword">import</span> { isFloat } <span class="hljs-keyword">from</span> <span class="hljs-string">"check-string"</span>;
 ...
 let str = <span class="hljs-string">'12.53'</span>;
-<span class="hljs-keyword">let</span> result = isFloat(str, { <span class="hljs-attr">canNull</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">500</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span> }); <span class="hljs-comment">//str可以为null，最大500，最小0</span>
+<span class="hljs-keyword">let</span> result = isFloat(str, { <span class="hljs-attr">canNull</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">500</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">decimals</span>: <span class="hljs-number">2</span> }); <span class="hljs-comment">//str可以为null，最大500，最小0， 小数点后最多2位小数</span>
 <span class="hljs-keyword">if</span> (!result.success) {
   <span class="hljs-built_in">console</span>.log(result.error.code); <span class="hljs-comment">// 输出错误编号</span>
   <span class="hljs-built_in">console</span>.log(result.error.cn); <span class="hljs-comment">// 输出错中文错误</span>
@@ -127,7 +127,7 @@ let str = <span class="hljs-string">'12.53'</span>;
 				<pre><code class="lang-js"><span class="hljs-keyword">import</span> { isReal } <span class="hljs-keyword">from</span> <span class="hljs-string">"check-string"</span>;
 ...
 let str = <span class="hljs-string">"23.56"</span>
-<span class="hljs-keyword">let</span> result = isReal(str, { <span class="hljs-attr">canNull</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">500</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span> }); <span class="hljs-comment">//str可以为null，最大500，最小0</span>
+<span class="hljs-keyword">let</span> result = isReal(str, { <span class="hljs-attr">canNull</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">500</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">decimals</span>: <span class="hljs-number">2</span> }); <span class="hljs-comment">//str可以为null，最大500，最小0，小数点后最多2位小数</span>
 <span class="hljs-keyword">if</span>(!result.success) {
   <span class="hljs-built_in">console</span>.log(result.error.code); <span class="hljs-comment">// 输出错误编号</span>
   <span class="hljs-built_in">console</span>.log(result.error.cn); <span class="hljs-comment">// 输出错中文错误</span>
