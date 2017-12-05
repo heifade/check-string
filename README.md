@@ -31,8 +31,8 @@ check-string的主要功能：
 * 检查字符串输入值是否符合最大值，最小值要求
 check-string的主要特点：
 * 1.整型检查：是否是整型格式，是否可以为空，是否在最大最小值范围内。
-* 2.浮点型检查：是否是浮点数格式，是否可以为空，是否在最大最小值范围内。
-* 3.实数型检查：是否是实数格式，是否可以为空，是否在最大最小值范围内。
+* 2.浮点型检查：是否是浮点数格式，是否可以为空，是否在最大最小值范围内，小数位数。
+* 3.实数型检查：是否是实数格式，是否可以为空，是否在最大最小值范围内，小数位数。
 * 4.邮件检查：是否是邮件格式
 * 5.手机号码检查：是否是手机号码格式
 * 6.座机号码检查：是否是座机号码格式
@@ -69,7 +69,7 @@ if(!result.success) {
 import { isFloat } from "check-string";
 ...
 let str = '12.53';
-let result = isFloat(str, { canNull: true, max: 500, min: 0 }); //str可以为null，最大500，最小0
+let result = isFloat(str, { canNull: true, max: 500, min: 0, decimals: 2 }); //str可以为null，最大500，最小0， 小数点后最多2位小数
 if (!result.success) {
   console.log(result.error.code); // 输出错误编号
   console.log(result.error.cn); // 输出错中文错误
@@ -82,7 +82,7 @@ if (!result.success) {
 import { isReal } from "check-string";
 ...
 let str = "23.56"
-let result = isReal(str, { canNull: true, max: 500, min: 0 }); //str可以为null，最大500，最小0
+let result = isReal(str, { canNull: true, max: 500, min: 0, decimals: 2 }); //str可以为null，最大500，最小0，小数点后最多2位小数
 if(!result.success) {
   console.log(result.error.code); // 输出错误编号
   console.log(result.error.cn); // 输出错中文错误
