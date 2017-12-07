@@ -3,7 +3,7 @@ sudo: enabled
 node_js:
   - "8"
 script :
-  - "npm build"
+  - "npm run build"
 after_script:
   - "npm run test-nyc"
 
