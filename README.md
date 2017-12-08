@@ -5,8 +5,8 @@ check-string
 
 [![NPM version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][npm-url]
-[![Build](https://travis-ci.org/heifade/check-string.svg)](https://travis-ci.org/heifade/check-string)
-[![Test Coverage](https://coveralls.io/repos/github/heifade/check-string/badge.svg)](https://coveralls.io/github/heifade/check-string?branch=master)
+[![Build](https://travis-ci.org/heifade/check-string.svg?branch=master)](https://travis-ci.org/heifade/check-string?branch=master)
+[![Test Coverage](https://coveralls.io/repos/github/heifade/check-string/badge.svg?branch=master)](https://coveralls.io/github/heifade/check-string?branch=master)
 
 
 

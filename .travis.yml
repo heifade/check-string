@@ -3,6 +3,7 @@ sudo: enabled
 node_js:
   - "8"
 script :
+  - "npm test"
   - "npm run build"
 after_script:
   - "npm run test-nyc"
@@ -17,7 +18,7 @@ deploy:
     email: heifade@126.com
     api_key: $NPM_TOKEN
     on:
-      tags: true
+      branch: master
       repo: heifade/check-string
   - provider: pages
     skip_cleanup: true
