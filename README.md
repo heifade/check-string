@@ -1,19 +1,14 @@
 check-string
 =======
 
-
-
 [![NPM version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][npm-url]
-[![Build](https://travis-ci.org/heifade/check-string.svg?branch=master)](https://travis-ci.org/heifade/check-string?branch=master)
-[![Test Coverage](https://coveralls.io/repos/github/heifade/check-string/badge.svg?branch=master)](https://coveralls.io/github/heifade/check-string?branch=master)
-
-
+[![Build Status](https://travis-ci.org/heifade/check-string.svg?branch=master)](https://travis-ci.org/heifade/check-string)
+[![Coverage Status](https://coveralls.io/repos/github/heifade/check-string/badge.svg?branch=master)](https://coveralls.io/github/heifade/check-string?branch=master)
 
 [npm-image]: https://img.shields.io/npm/v/check-string.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/check-string
 [downloads-image]: https://img.shields.io/npm/dm/check-string.svg
-
 
 # 源代码及文档
 [源代码](https://github.com/heifade/check-string)
