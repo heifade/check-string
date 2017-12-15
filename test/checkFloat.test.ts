@@ -8,8 +8,8 @@ describe("checkFloat", function() {
       let v = i.toFixed(2);
       if (v === "-0.00") {
         v = "0.00";
-        expect(isFloat(v).success).to.be.true;
       }
+      expect(isFloat(v).success).to.be.true;
     }
 
     done();
