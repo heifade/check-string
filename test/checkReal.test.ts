@@ -8,8 +8,9 @@ describe("checkReal", function() {
       let v = i.toFixed(2);
       if (v === "-0.00") {
         v = "0.00";
-        expect(isReal(v).success).to.be.true;
       }
+      expect(isReal(v).success).to.be.true;
+      expect(isReal(i).success).to.be.true;
     }
 
     done();
@@ -53,34 +54,14 @@ describe("checkReal", function() {
     expect(isReal("0.0", { min: 0, max: 0 }).success).to.be.true;
     expect(isReal("0.0", { min: -100, max: 100 }).success).to.be.true;
 
-    [
-      "-100.0",
-      "-10.0",
-      "-2.0",
-      "-1.0",
-      "0.0",
-      "1.0",
-      "2.0",
-      "10.0",
-      "100.0"
-    ].map(m => {
+    ["-100.0", "-10.0", "-2.0", "-1.0", "0.0", "1.0", "2.0", "10.0", "100.0"].map(m => {
       let result = isReal(m, { min: 101 });
       let err = result.error;
       expect(result.success).to.be.false;
       expect(err && err.code === "ERROR_MIN").to.be.true;
     });
 
-    [
-      "-100.0",
-      "-10.0",
-      "-2.0",
-      "-1.0",
-      "0.0",
-      "1.0",
-      "2.0",
-      "10.0",
-      "100.0"
-    ].map(m => {
+    ["-100.0", "-10.0", "-2.0", "-1.0", "0.0", "1.0", "2.0", "10.0", "100.0"].map(m => {
       let result = isReal(m, { max: -101 });
       let err = result.error;
       expect(result.success).to.be.false;

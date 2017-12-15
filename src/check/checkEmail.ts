@@ -4,9 +4,7 @@ import { isNull } from "../util";
 import { checkCanNullOrEmpty, checkRegs } from "./checkCommon";
 
 //正则
-let regList = [
-  /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-];
+let regList = [/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/];
 
 /**
  * 电子邮件检查参数

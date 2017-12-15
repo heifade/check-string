@@ -1,12 +1,7 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
 import { isNull } from "../util";
-import {
-  checkCanNullOrEmpty,
-  checkRegs,
-  checkMaxValue,
-  checkMinValue
-} from "./checkCommon";
+import { checkCanNullOrEmpty, checkRegs, checkMaxValue, checkMinValue } from "./checkCommon";
 
 //正则
 let regList = [
@@ -52,7 +47,10 @@ export class CheckFloatParams extends CheckParamsBase {
  * }
  * </pre>
  */
-export function isFloat(value: string, params?: CheckFloatParams): CheckResult {
+export function isFloat(value: string | number, params?: CheckFloatParams): CheckResult {
+  if (typeof value === "number") {
+    return new CheckResult(true);
+  }
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {
     return resultCanNullOrEmpty;

@@ -39,10 +39,7 @@ export class CheckFixedTelephoneNumberParams extends CheckParamsBase {}
  * }
  * </pre>
  */
-export function isFixedTelephoneNumber(
-  value: string,
-  params?: CheckFixedTelephoneNumberParams
-): CheckResult {
+export function isFixedTelephoneNumber(value: string, params?: CheckFixedTelephoneNumberParams): CheckResult {
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {
     return resultCanNullOrEmpty;

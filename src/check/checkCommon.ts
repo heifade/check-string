@@ -13,10 +13,7 @@ import { isNull, isEmpty } from "../util";
  * @param {CheckParamsBase} [params]
  * @returns {CheckResult}
  */
-export function checkCanNullOrEmpty(
-  value: string,
-  params?: CheckParamsBase
-): CheckResult {
+export function checkCanNullOrEmpty(value: string, params?: CheckParamsBase): CheckResult {
   if (params) {
     if (isNull(value)) {
       // 值为空时

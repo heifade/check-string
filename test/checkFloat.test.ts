@@ -10,6 +10,7 @@ describe("checkFloat", function() {
         v = "0.00";
       }
       expect(isFloat(v).success).to.be.true;
+      expect(isFloat(i).success).to.be.true;
     }
 
     done();
@@ -17,21 +18,7 @@ describe("checkFloat", function() {
 
   it("isFloat not float", done => {
     //不是浮点数
-    [
-      "a",
-      "b",
-      "c",
-      "-1",
-      "1",
-      "0",
-      "00",
-      "000",
-      "01",
-      "001",
-      "-0.0",
-      "-0",
-      "-00.00"
-    ].map(m => {
+    ["a", "b", "c", "-1", "1", "0", "00", "000", "01", "001", "-0.0", "-0", "-00.00"].map(m => {
       let result = isFloat(m);
       let err = result.error;
       expect(result.success).to.be.false;
@@ -67,34 +54,14 @@ describe("checkFloat", function() {
     expect(isFloat("0.0", { min: 0, max: 0 }).success).to.be.true;
     expect(isFloat("0.0", { min: -100, max: 100 }).success).to.be.true;
 
-    [
-      "-100.0",
-      "-10.0",
-      "-2.0",
-      "-1.0",
-      "0.0",
-      "1.0",
-      "2.0",
-      "10.0",
-      "100.0"
-    ].map(m => {
+    ["-100.0", "-10.0", "-2.0", "-1.0", "0.0", "1.0", "2.0", "10.0", "100.0"].map(m => {
       let result = isFloat(m, { min: 101 });
       let err = result.error;
       expect(result.success).to.be.false;
       expect(err && err.code === "ERROR_MIN").to.be.true;
     });
 
-    [
-      "-100.0",
-      "-10.0",
-      "-2.0",
-      "-1.0",
-      "0.0",
-      "1.0",
-      "2.0",
-      "10.0",
-      "100.0"
-    ].map(m => {
+    ["-100.0", "-10.0", "-2.0", "-1.0", "0.0", "1.0", "2.0", "10.0", "100.0"].map(m => {
       let result = isFloat(m, { max: -101 });
       let err = result.error;
       expect(result.success).to.be.false;

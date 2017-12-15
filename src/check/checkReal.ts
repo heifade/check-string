@@ -1,12 +1,7 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
 import { isNull } from "../util";
-import {
-  checkCanNullOrEmpty,
-  checkRegs,
-  checkMinValue,
-  checkMaxValue
-} from "./checkCommon";
+import { checkCanNullOrEmpty, checkRegs, checkMinValue, checkMaxValue } from "./checkCommon";
 
 //正则
 let regList = [
@@ -50,7 +45,11 @@ export class CheckRealParams extends CheckParamsBase {
  * }
  * </pre>
  */
-export function isReal(value: string, params?: CheckRealParams): CheckResult {
+export function isReal(value: string | number, params?: CheckRealParams): CheckResult {
+  if (typeof value === "number") {
+    return new CheckResult(true);
+  }
+
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {
     return resultCanNullOrEmpty;

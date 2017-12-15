@@ -45,10 +45,7 @@ export class CheckPhoneNumberParams extends CheckParamsBase {}
  * }
  * </pre>
  */
-export function isPhoneNumber(
-  value: string,
-  params?: CheckPhoneNumberParams
-): CheckResult {
+export function isPhoneNumber(value: string, params?: CheckPhoneNumberParams): CheckResult {
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {
     return resultCanNullOrEmpty;

@@ -27,8 +27,7 @@ describe("checkFixedTelephoneNumber", function() {
   it("isFixedTelephoneNumber can null", done => {
     expect(isFixedTelephoneNumber("", { canEmpty: true }).success).to.be.true;
     expect(isFixedTelephoneNumber(null, { canNull: true }).success).to.be.true;
-    expect(isFixedTelephoneNumber(undefined, { canNull: true }).success).to.be
-      .true;
+    expect(isFixedTelephoneNumber(undefined, { canNull: true }).success).to.be.true;
 
     expect(isFixedTelephoneNumber("").success).to.be.false;
     expect(isFixedTelephoneNumber(null).success).to.be.false;

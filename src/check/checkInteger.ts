@@ -1,12 +1,7 @@
 import { CheckResult } from "../checkResult";
 import { CheckParamsBase } from "../checkParamsBase";
 import { isNull } from "../util";
-import {
-  checkCanNullOrEmpty,
-  checkRegs,
-  checkMaxValue,
-  checkMinValue
-} from "./checkCommon";
+import { checkCanNullOrEmpty, checkRegs, checkMaxValue, checkMinValue } from "./checkCommon";
 
 //正则
 let regList = [
@@ -48,10 +43,12 @@ export class CheckIntegerParams extends CheckParamsBase {
  * }
  * </pre>
  */
-export function isInteger(
-  value: string,
-  params?: CheckIntegerParams
-): CheckResult {
+export function isInteger(value: string | number, params?: CheckIntegerParams): CheckResult {
+
+  if (typeof value === "number") {
+    return new CheckResult(true);
+  }
+
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {
     return resultCanNullOrEmpty;

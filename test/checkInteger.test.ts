@@ -6,6 +6,7 @@ describe("checkInteger", function() {
   it("isInteger must be success", done => {
     for (let i = -1000; i < 1001; i++) {
       expect(isInteger(i.toString()).success).to.be.true;
+      expect(isInteger(i).success).to.be.true;
     }
 
     done();
@@ -13,14 +14,12 @@ describe("checkInteger", function() {
 
   it("isInteger not int", done => {
     //不是整数
-    ["a", "b", "c", "-1.0", "1.0", "0.0", ".1", "00", "000", "01", "001"].map(
-      m => {
-        let result = isInteger(m);
-        let err = result.error;
-        expect(result.success).to.be.false;
-        expect(err && err.code === "ERROR_NOT_INT").to.be.true;
-      }
-    );
+    ["a", "b", "c", "-1.0", "1.0", "0.0", ".1", "00", "000", "01", "001"].map(m => {
+      let result = isInteger(m);
+      let err = result.error;
+      expect(result.success).to.be.false;
+      expect(err && err.code === "ERROR_NOT_INT").to.be.true;
+    });
 
     ["", null, undefined].map(m => {
       let result = isInteger(m);

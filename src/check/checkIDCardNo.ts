@@ -39,10 +39,7 @@ export class CheckIDCardNoParams extends CheckParamsBase {}
  * }
  * </pre>
  */
-export function isIDCardNo(
-  value: string,
-  params?: CheckIDCardNoParams
-): CheckResult {
+export function isIDCardNo(value: string, params?: CheckIDCardNoParams): CheckResult {
   let resultCanNullOrEmpty = checkCanNullOrEmpty(value, params);
   if (resultCanNullOrEmpty) {
     return resultCanNullOrEmpty;
