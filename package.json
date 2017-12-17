@@ -1,9 +1,10 @@
 {
   "name": "check-string",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
+  "typings": "./es/index",
   "files": [
     "lib",
     "es"
