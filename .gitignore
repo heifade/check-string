@@ -1,33 +1,16 @@
-*.iml
-*.log
-.idea/
-.ipr
-.iws
-*~
-~*
-*.diff
-*.patch
-*.bak
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# production
+/docs
+/es
+
+# misc
 .DS_Store
-Thumbs.db
-.project
-.*proj
-.svn/
-*.swp
-*.swo
-*.pyc
-*.pyo
-node_modules
-_site
-.cache
-.happypack
-dist
-build
-.yo-rc.json
-yarn.lock
-build
-.history
-coverage
-mochawesome-report
-.nyc_output
-.coveralls.yml
+npm-debug.log*
+
+/.nyc_output
+
+/test/config.json
