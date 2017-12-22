@@ -1,5 +1,4 @@
-check-string
-=======
+# check-string
 
 [![NPM version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][npm-url]
