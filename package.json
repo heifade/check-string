@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -40,7 +40,7 @@
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "fs-extra": "^5.0.0",
-    "fs-i": "^1.0.3",
+    "fs-i": "^1.0.4",
     "mocha": "^4.0.1",
     "nyc": "^11.3.0",
     "source-map-support": "^0.5.0",
