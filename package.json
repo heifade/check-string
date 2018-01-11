@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -10,13 +10,9 @@
     "es"
   ],
   "scripts": {
-    "clean": "node ./tools/clean.js",
-    "docs": "typedoc --out docs src --module commonjs --hideGenerator && node ./tools/formatDocs.js",
-    "build-es6": "tsc -p tsconfig-es6.json",
-    "build-amd": "tsc -p tsconfig-amd.json",
-    "build": "npm run clean && npm run build-es6 && npm run build-amd && npm run docs",
-    "test": "nyc mocha -t 5000",
-    "test-nyc": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "build": "pcreate build",
+    "start": "pcreate build && node ./es/index.js",
+    "test": "pcreate test"
   },
   "nyc": {
     "include": [
@@ -38,15 +34,6 @@
     "@types/chai": "^4.0.6",
     "@types/mocha": "^2.2.44",
     "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
-    "fs-extra": "^5.0.0",
-    "fs-i": "^1.0.4",
-    "mocha": "^4.0.1",
-    "nyc": "^11.3.0",
-    "source-map-support": "^0.5.0",
-    "ts-node": "^4.1.0",
-    "typedoc": "^0.9.0",
-    "typedoc-format": "^1.0.2",
-    "typescript": "^2.5.3"
+    "mocha": "^4.0.1"
   }
 }
