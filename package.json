@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -9,6 +9,10 @@
     "lib",
     "es"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heifade/check-string.git"
+  },
   "scripts": {
     "build": "pcreate build",
     "start": "pcreate build && node ./es/index.js",
@@ -21,6 +25,7 @@
     "@types/chai": "^4.0.6",
     "@types/mocha": "^2.2.44",
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "pcreate-config": "^1.0.11"
   }
 }
