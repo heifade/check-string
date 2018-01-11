@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -13,19 +13,6 @@
     "build": "pcreate build",
     "start": "pcreate build && node ./es/index.js",
     "test": "pcreate test"
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "sourceMap": true,
-    "instrument": true
   },
   "keywords": [],
   "author": "heifade",
