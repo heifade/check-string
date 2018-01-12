@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -26,6 +26,6 @@
     "@types/mocha": "^2.2.44",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
-    "pcreate-config": "^1.0.11"
+    "pcreate-config": "^1.1.1"
   }
 }
