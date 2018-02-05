@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -22,10 +22,10 @@
   "author": "heifade",
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^4.0.6",
-    "@types/mocha": "^2.2.44",
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
-    "pcreate-config": "^1.1.1"
+    "pcreate-config": "^1.1.15"
   }
 }

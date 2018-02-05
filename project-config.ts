@@ -1,6 +1,6 @@
 import { ProjectConfigModel } from "pcreate-config";
 
-let projectConfig: ProjectConfigModel = {
+let projectConfig = {
   projectType: "node",
   compile: [
     {
