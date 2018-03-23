@@ -5,7 +5,7 @@ import { checkCanNullOrEmpty, checkRegs } from "./checkCommon";
 
 //正则
 let regList = [
-  /^1[3|4|5|7|8][0-9]{9}$/ // 手机号码
+  /^1[3|4|5|6|7|8][0-9]{9}$/ // 手机号码
 ];
 
 /**
@@ -28,7 +28,7 @@ export class CheckPhoneNumberParams extends CheckParamsBase {}
  * <br/><br/>
  * <pre>
  * 移动号码段:139、138、137、136、135、134、150、151、152、157、158、159、182、183、187、188、147
- * 联通号码段:130、131、132、136、185、186、145
+ * 联通号码段:130、131、132、136、185、186、145、166
  * 电信号码段:133、153、180、189
  * </pre>
  * @example

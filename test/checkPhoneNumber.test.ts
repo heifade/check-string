@@ -4,7 +4,7 @@ import "mocha";
 
 describe("checkPhoneNumber", function() {
   it("isPhoneNumber must be success", done => {
-    ["15912345678"].map(m => {
+    ["15912345678", "16612345678"].map(m => {
       expect(isPhoneNumber(m).success).to.be.true;
     });
 
