@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
