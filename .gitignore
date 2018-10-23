@@ -5,8 +5,8 @@
 
 # production
 /docs
-/es
-/lib
+/dist
+
 
 # misc
 .DS_Store

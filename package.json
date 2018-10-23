@@ -1,20 +1,21 @@
 {
   "name": "check-string",
-  "version": "3.0.11",
+  "version": "3.0.12",
   "description": "",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "typings": "./es/index",
+  "main": "./dist/check-string-cjs.js",
+  "module": "./dist/check-string-es.js",
+  "jsnext:main": "./dist/check-string-es.js",
+  "typings": "./dist/index",
   "files": [
-    "lib",
-    "es"
+    "dist"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heifade/check-string.git"
   },
   "scripts": {
-    "build": "happywork-node-builder build --doc",
+    "build": "happywork-node-builder build --doc && npm run tsc",
+    "tsc": "tsc",
     "test": "happywork-node-builder test"
   },
   "keywords": [],
@@ -24,7 +25,8 @@
     "@types/chai": "^4.1.2",
     "@types/mocha": "^2.2.48",
     "chai": "^4.1.2",
-    "happywork-node-builder": "^1.0.46",
-    "mocha": "^4.0.1"
+    "happywork-node-builder": "^1.0.47",
+    "mocha": "^4.0.1",
+    "typescript": "^3.1.3"
   }
 }

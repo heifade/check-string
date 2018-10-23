@@ -4,13 +4,13 @@ const config: BuildConfig = {
   input: "src/index.ts",
   output: [
     {
-      dir: "es",
-      file: "index.js",
+      dir: "dist",
+      file: "check-string-es.js",
       format: "es"
     },
     {
-      dir: "lib",
-      file: "index.js",
+      dir: "dist",
+      file: "check-string-cjs.js",
       format: "cjs"
     }
   ],

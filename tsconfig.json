@@ -1,0 +1,12 @@
+{
+  "include": [
+		"src/**/*.ts"
+	],
+  "compilerOptions": {
+    "lib": ["es2015", "es2015.promise"],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "declaration": true,
+  }
+}
