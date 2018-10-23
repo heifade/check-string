@@ -3,7 +3,7 @@ sudo: enabled
 node_js:
   - "8"
 before_script:
-  - npm run test
+  - happywork-node-builder test --coveralls
 script:
   - npm run build
 after_script:
@@ -20,9 +20,9 @@ deploy:
     on:
       branch: master
       repo: heifade/check-string
-  # - provider: pages
-  #   skip_cleanup: true
-  #   github_token: $GITHUB_TOKEN
-  #   local_dir: docs
-  #   on:
-  #     branch: master
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: docs
+    on:
+      branch: master
