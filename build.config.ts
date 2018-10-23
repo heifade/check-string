@@ -15,7 +15,7 @@ const config: BuildConfig = {
     }
   ],
   external: [],
-  mini: true
+  mini: false
 };
 
 export default config;
