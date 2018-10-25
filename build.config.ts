@@ -2,20 +2,17 @@ import { BuildConfig } from "happywork-node-builder";
 
 const config: BuildConfig = {
   input: {
-    'check-string-es': "src/index.ts",
-    // 'check-string-cjs': "src/index.ts",
+    index: "src/index.ts"
   },
   output: [
     {
-      dir: "dist",
-      // file: "check-string-es.js",
+      dir: "lib",
       format: "cjs"
     },
-    // {
-    //   dir: "dist",
-    //   // file: "check-string-cjs.js",
-    //   format: "cjs"
-    // }
+    {
+      dir: "es",
+      format: "es"
+    }
   ],
   external: [],
   mini: false

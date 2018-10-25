@@ -6,7 +6,7 @@
     "lib": ["es2015", "es2015.promise"],
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "ts",
     "declaration": true,
   }
 }

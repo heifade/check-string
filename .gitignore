@@ -5,7 +5,9 @@
 
 # production
 /docs
-/dist
+/es
+/lib
+/ts
 
 
 # misc
