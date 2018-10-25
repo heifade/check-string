@@ -1,6 +1,6 @@
 {
   "name": "check-string",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -26,7 +26,7 @@
     "@types/chai": "^4.1.2",
     "@types/mocha": "^2.2.48",
     "chai": "^4.1.2",
-    "happywork-node-builder": "^1.0.48",
+    "happywork-node-builder": "^1.0.51",
     "mocha": "^4.0.1",
     "typescript": "^3.1.3"
   }
