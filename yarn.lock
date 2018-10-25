@@ -1342,10 +1342,10 @@ handlebars@^4.0.11, handlebars@^4.0.6:
   optionalDependencies:
     uglify-js "^3.1.4"
 
-happywork-node-builder@^1.0.48:
-  version "1.0.48"
-  resolved "https://registry.yarnpkg.com/happywork-node-builder/-/happywork-node-builder-1.0.48.tgz#87d7e5ba711355fe1652d738cb8656d8287199ee"
-  integrity sha512-vg/sygAW/tB34pPC5BGMBp86bR8PjqblYojqfr0dcDA2MCxQWFHdECVTQjTXQFz8siHskx326A9/zLUfLvktYA==
+happywork-node-builder@1.0.52:
+  version "1.0.52"
+  resolved "https://registry.npmjs.org/happywork-node-builder/-/happywork-node-builder-1.0.52.tgz#cec7244a635e7cd69fd302645a30dfbb0f2a6a36"
+  integrity sha512-nbQXttEOQMLr72QucHYaJVco+YN58InbVH+oBz6wKCqWN1dW4Q3qxm7Z+ldQaHOXmsc/XUWDpVJej1eVe6jrpQ==
   dependencies:
     "@babel/core" "^7.1.2"
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
